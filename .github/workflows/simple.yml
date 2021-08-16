@@ -19,9 +19,11 @@ jobs:  # its an object
         shell: python # we can choose the type of the command line
   run-windows-commands:
     runs-on: windows-latest
+    needs: ["run-shell-commands"]
     steps:
       - name: echo location in windows # powershhell is the default command line in windows
         run: Get-Location
       - name: echo location in bash
         run: pwd
+        shell: bash
     
