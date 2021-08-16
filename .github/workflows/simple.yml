@@ -24,5 +24,4 @@ jobs:  # its an object
         run: Get-Location
       - name: echo location in bash
         run: pwd
-        shell: bash
     
