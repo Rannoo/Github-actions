@@ -1,0 +1,15 @@
+name: shell commands #the name of the entire workflow
+
+on: push # or [push, pull request,...]
+
+jobs:  # its an object
+  run-shell-commands:  # hte first jobs name
+    runs-on:  ubuntu-latest # the choose of OS
+    steps: # this is an array of objects where each object represente a step
+      - name: echo a string
+        run: echo "Hello ranya"
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
+    
