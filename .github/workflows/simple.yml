@@ -7,9 +7,22 @@ jobs:  # its an object
     runs-on:  ubuntu-latest # the choose of OS
     steps: # this is an array of objects where each object represente a step
       - name: echo a string
-        run: eccho "Hello ranya"
+        run: echo "Hello ranya"
       - name: multiline script
         run: |
           node -v
           npm -v
+      - name: python commands
+        run: |
+          import platform
+          print (platform.processor())
+        shell: python # we can choose the type of the command line
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: echo location in windows # powershhell is the default command line in windows
+        run: Get-Location
+      - name: echo location in bash
+        run: pwd
+        shell: bash
     
