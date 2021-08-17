@@ -1,5 +1,21 @@
 name: actions workflow
 on: 
+  push:
+    branches:
+      # - master # only if we push to the master branche
+      # we can use patterns also
+      - 'feature/*' # matches any branche that begin with feature but not feature/feaA/fhhf only one level
+      # * matches any string except /
+      - 'feature/**' # ** matches any string
+      - '!feature/featc'
+      # if we want to trigger our workflow in all branches except only one we can use branches-ignore
+      # we can not have branches and branches-ignore in the same time, we have to choose
+    # tags:
+    #   - v1.*
+    # # paths:
+    # #   - '**.js' # matches any js file in our repo
+    # paths-ignore:
+    #   - 'docs/**' #matches any thing in the docs folder
   repository_dispatch:
     types: [build]
   # schedule: # this key will make use trigger our worklow in a certain schedule, its an array
@@ -7,6 +23,8 @@ on:
   #   - cron: "0/6 * * * *" #at every 6 minutes
   pull_request: 
     types: [closed, opened]
+    branches:
+      - master
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
