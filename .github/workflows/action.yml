@@ -6,10 +6,18 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: list files
+      - name: list files 
+      # pwd --> /home/runner/work/github-actions/github-actions
+      # ls --> nothingbecause github will not clone our repo in our working directory (in the VM)
         run: |
-          pwd
-          ls
+          pwd 
+          ls-a
+      - name: clone repo # this actions will clone our repo in our working directory in the VM so our workflow can acces it
+        uses: actions/checkout@v2.3.4
+      - name: list files after checkout
+        run: |
+          pwd 
+          ls -a
       - name: JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1.1 # take a reference to an action
