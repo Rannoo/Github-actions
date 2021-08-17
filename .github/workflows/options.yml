@@ -1,0 +1,20 @@
+name: options
+on: push
+jobs:
+  options:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # the max number of minute that the job can take
+    # if it take more than it, github will cancel it
+    steps:
+      - name: print msg 
+        run: eccho "ranya!"
+        timeout-minutes: 5 # can use it also in steps
+        continue-on-error: true
+      - name: print msg 3
+        run: echo "ranya 3 !"
+  options2:
+    runs-on: ubuntu-latest
+    needs: ["options"] # this job depends on the previous one
+    steps:
+      - name: print msg 2 
+        run: echo "ranya 2 !"
