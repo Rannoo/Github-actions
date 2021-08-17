@@ -1,5 +1,7 @@
 name: actions workflow
 on: 
+  repository_dispatch:
+    types: [build]
   # schedule: # this key will make use trigger our worklow in a certain schedule, its an array
   #   - cron: "0/5 * * * *" # the cron schedule expression: 5 things: at every 5 minutes
   #   - cron: "0/6 * * * *" #at every 6 minutes
