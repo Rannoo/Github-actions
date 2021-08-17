@@ -11,7 +11,7 @@ jobs:
       # ls --> nothingbecause github will not clone our repo in our working directory (in the VM)
         run: |
           pwd 
-          ls-a
+          ls -a
       - name: clone repo # this actions will clone our repo in our working directory in the VM so our workflow can acces it
         uses: actions/checkout@v2.3.4
       - name: list files after checkout
