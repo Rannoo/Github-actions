@@ -1,0 +1,16 @@
+name: actions workflow
+
+on: push
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1 # take a reference to an action
+        #(username/reponame@ref to a branch or a version or a specific commit)
+        with:
+          who-to-greet: 'Rania BOLTANE'
+      - name: Log greeting time
+        run: echo "${{steps.greet.outputs.time}}"
