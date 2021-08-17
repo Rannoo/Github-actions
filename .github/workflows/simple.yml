@@ -1,6 +1,6 @@
 name: shell commands #the name of the entire workflow
 
-on: push # or [push, pull request,...]
+on: pull_request # or [push, pull request,...]
 
 jobs:  # its an object
   run-shell-commands:  # hte first jobs name

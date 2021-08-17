@@ -1,7 +1,10 @@
 name: actions workflow
-
-on: push
-
+on: 
+  # schedule: # this key will make use trigger our worklow in a certain schedule, its an array
+  #   - cron: "0/5 * * * *" # the cron schedule expression: 5 things: at every 5 minutes
+  #   - cron: "0/6 * * * *" #at every 6 minutes
+  pull_request: 
+    types: [closed, opened]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
@@ -24,5 +27,5 @@ jobs:
         #(username/reponame@ref to a branch or a version or a specific commit)
         with:
           who-to-greet: 'Rania BOLTANE'
-      - name: Log greeting time
+      - name: Log greeting time # how we can acces to the output of a step
         run: echo "${{steps.greet.outputs.time}}"
