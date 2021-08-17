@@ -1,5 +1,5 @@
 name: encrypting and decrypting files
-on: [push, pull_request]
+on: [ pull_request]
 jobs:
   decrypting-files:
     runs-on: ubuntu-latest

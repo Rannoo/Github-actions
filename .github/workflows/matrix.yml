@@ -1,12 +1,12 @@
 name: Matrix
-on: push
+on: pull_request
 jobs:
   node_version:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest] 
         node_version: [6,8,10] # we will run our job 3 times with 3 diff env configuration
-        exclude: # exclude somme configuration
+        exclude: # exclude some configuration
           - os: ubuntu-latest
             node_version: 6
           - os: macos-latest
