@@ -1,19 +1,19 @@
 name: Matrix
 on: push
 jobs:
-  node-version:
+  node_version:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest] 
         node_version: [6,8,10] # we will run our job 3 times with 3 diff env configuration
         exclude: # exclude somme configuration
           - os: ubuntu-latest
-            node-version: 6
+            node_version: 6
           - os: macos-latest
-            node-version: 10
+            node_version: 10
         include: # add some extre information to specific configuration
           - os: ubuntu-latest
-            node-version: 10
+            node_version: 10
             is_ubuntu_10: "true" #this variable will only exist if we have this configuration
       fail-fast: false # this meen if one of the jobs fails, the other jobs will stop if its TRUE
       # so here with false, each of the 3 jobs will run independent of the result of other jobs
@@ -25,7 +25,7 @@ jobs:
         run: node -v
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node_version}}
+          node_version: ${{ matrix.node_version}}
       - name: Log Node version after the setup node action
         run: |
           node -v
